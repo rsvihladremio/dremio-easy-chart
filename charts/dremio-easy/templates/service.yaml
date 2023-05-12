@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "dremio-easy-chart.fullname" . }}
+  name: {{ include "dremio-easy.fullname" . }}
   labels:
-    {{- include "dremio-easy-chart.labels" . | nindent 4 }}
+    {{- include "dremio-easy.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "dremio-easy-chart.selectorLabels" . | nindent 4 }}
+    {{- include "dremio-easy.selectorLabels" . | nindent 4 }}

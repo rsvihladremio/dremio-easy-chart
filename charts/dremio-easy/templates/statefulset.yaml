@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "dremio-easy-chart.fullname" . }}
+  name: {{ include "dremio-easy.fullname" . }}
   labels:
-    {{- include "dremio-easy-chart.labels" . | nindent 4 }}
+    {{- include "dremio-easy.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "dremio-easy-chart.selectorLabels" . | nindent 6 }}
+      {{- include "dremio-easy.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "dremio-easy-chart.selectorLabels" . | nindent 8 }}
+        {{- include "dremio-easy.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "dremio-easy-chart.serviceAccountName" . }}
+      serviceAccountName: {{ include "dremio-easy.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
