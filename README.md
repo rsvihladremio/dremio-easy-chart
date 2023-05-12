@@ -1,6 +1,6 @@
 # dremio-easy-chart
-Easy helm chart to setup a toy dremio. great for notebooks
 
+Easy helm chart to setup a toy dremio. great for notebooks
 
 ## Usage
 
@@ -13,7 +13,7 @@ Once Helm has been set up correctly, add the repo as follows:
 
 If you had already added this repo earlier, run `helm repo update` to retrieve
 the latest versions of the packages.  You can then run `helm search repo
-<alias>` to see the charts.
+dremio-easy` to see the charts.
 
 To install the dremio-easy chart:
 
