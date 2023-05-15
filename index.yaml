@@ -3,6 +3,16 @@ entries:
   dremio-easy:
   - apiVersion: v2
     appVersion: "24.0"
+    created: "2023-05-15T11:38:56.439785941Z"
+    description: A Helm chart for Kubernetes
+    digest: a9f9b0491314d60a3ce7d1e012b62f72c846c5bf5672be604f6d821e29bb072e
+    name: dremio-easy
+    type: application
+    urls:
+    - https://github.com/rsvihladremio/dremio-easy-chart/releases/download/dremio-easy-0.2.1/dremio-easy-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: "24.0"
     created: "2023-05-15T11:32:29.534187151Z"
     description: A Helm chart for Kubernetes
     digest: ebb265356c61076093c12a14463222e6ffbb311b9e9d1560af79ad31c4f6d2aa
@@ -32,4 +42,4 @@ entries:
     urls:
     - https://github.com/rsvihladremio/dremio-easy-chart/releases/download/dremio-easy-chart-0.1.0/dremio-easy-chart-0.1.0.tgz
     version: 0.1.0
-generated: "2023-05-15T11:32:29.534195551Z"
+generated: "2023-05-15T11:38:56.439804542Z"
