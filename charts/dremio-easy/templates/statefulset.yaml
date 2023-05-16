@@ -25,9 +25,21 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "dremio-easy.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: chown-data-directory
+          image: {{ $.Values.image }}:{{ $.Values.imageTag }}
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 0
+          volumeMounts:
+          - name: dremio-master-volume
+            mountPath: /opt/dremio/data
+          command: ["chown"]
+          args:
+            - "dremio:dremio"
+            - "/opt/dremio/data"
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
