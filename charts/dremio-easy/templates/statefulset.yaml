@@ -29,13 +29,13 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
         - name: chown-data-directory
-          image: {{ $.Values.image }}:{{ $.Values.imageTag }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: IfNotPresent
           securityContext:
             runAsUser: 0
           volumeMounts:
-          - name: dremio-master-volume
-            mountPath: /opt/dremio/data
+            - name: {{ .Chart.Name }}
+              mountPath: /opt/dremio/data
           command: ["chown"]
           args:
             - "dremio:dremio"
